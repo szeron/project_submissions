@@ -22,8 +22,9 @@ We are employees of the Disease And Treatment Agency, division of Societal Cures
 
 Our role is to derive an effective plan to deploy pesticides throughout the city:
 
-create a model to predict the presence of WNV throughout various locations in the city of Chicago
-do a cost benefit analysis to weigh cost of spraying pesticides against potential benefits
+- create a model to predict the presence of WNV throughout various locations in the city of Chicago
+- do a cost benefit analysis to weigh cost of spraying pesticides against potential benefits
+
 The model and the analysis should serve to help the city better manage resources when dealing with WNV.
 <br><br>
 **Evaluation**
@@ -85,7 +86,7 @@ Technical reports submitted:
 |8|XGBoost|0.825|0.855|0.832|0.600|0.693|robust to noise; can capture complex/non-linear relationship|slower|
 |9|**Random Forest (less Features) finetuned**|0.823|0.859|0.822|**0.701**|0.746|robust to noise; can capture complex/non-linear relationship|slower|
 
-Random Forest had the least amount of overfitting when tested using the Kaggle dataset. It also has a reasonable recall score of 0.772.
+Random Forest had the least amount of overfitting when tested using the Kaggle dataset. It had a test AUC score of 0.701. It also has a reasonable recall score of 0.772.
 
 Only a few features were used to avoid overfitting:
 - sunlight duration
@@ -104,7 +105,9 @@ Even though there is very little overfitting when doing train-test split and val
 
 ### Cost Benefit Analysis
 
-|  | Coverage | Total Costs (\$) | Total Benefits (\$) | Breakeven Cases |  Net Benefit / Cost (\$) |
+We used a base scenario as a benchmark and analysed if having a targeted coverage (spraying only those areas predicted to have WNV present) and/or spraying only in months with peak number of cases would have a lower breakeven point and higher net benefit.
+
+|  | Coverage | Total Costs (\$) | Total Benefits (\$) | Breakeven Cases |  Net Benefit (\$) |
 |---|---:|---:|---:|---:|---:|
 | Base Scenario | 100% | 2.558m | 2.194m | 106 | -364k |
 | 28% Spray Coverage | 28% | 0.713m | 1.636m | 40 | 923k |
@@ -139,6 +142,8 @@ In order to improve the AUC score further, we might need to explore techniques i
 
 Additionally, we could also consider the long-term effects of West Nile Virus. For roughly 1 in every 150 infections, manifests into a severe neurological disease called West Nile Neuroinvasive Disease (WNND). For non-neuroinvasive WNV cases, the percentage of deaths is only 0.5%. However for WNND, the % of deaths is much higher at 9%. Including this in our cost-benefit analysis might get a more realistic assessment but will also make the analysis more complex.
 
+---
+
 ### References
 
 - [www.beyondpesticides.org/resources/mosquitos-and-insect-borne-diseases/documents/the-truth-about-mosquitoes,-pesticides-and-west-nile-virus](www.beyondpesticides.org/resources/mosquitos-and-insect-borne-diseases/documents/the-truth-about-mosquitoes,-pesticides-and-west-nile-virus)
@@ -148,8 +153,8 @@ Additionally, we could also consider the long-term effects of West Nile Virus. F
 - [bidcondocs.delaware.gov/NAT/NAT_19123-INSECTICIDE_An.pdf](bidcondocs.delaware.gov/NAT/NAT_19123-INSECTICIDE_An.pdf)
 - [https://www.cmmcp.org/pesticide-information/pages/zenivex-e4-etofenprox](https://www.cmmcp.org/pesticide-information/pages/zenivex-e4-etofenprox)
 - [www.astmh.org/CMSPages/GetFile.aspx?guid=823fde2b-6fa4-4e07-ae52-9dc10f1d5e54](www.astmh.org/CMSPages/GetFile.aspx?guid=823fde2b-6fa4-4e07-ae52-9dc10f1d5e54)
-- [https://www.npr.org/sections/health-shots/2014/02/11/275262857/the-high-cost-of-treating-people-hospitalized-with-west-nile-virus#:~:text=The%20U.S%20recorded%20its%20first,of%20Tropical%20Medicine%20and%20Hygiene](https://www.npr.org/sections/health-shots/2014/02/11/275262857/the-high-cost-of-treating-people-hospitalized-with-west-nile-virus#:~:text=The%20U.S%20recorded%20its%20first,of%20Tropical%20Medicine%20and%20Hygiene)
-- [https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7241786/#:~:text=There%20were%201%2C371%20total%20human,(Cook%20and%20DuPage%20Counties).](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7241786/#:~:text=There%20were%201%2C371%20total%20human,(Cook%20and%20DuPage%20Counties).)
+- [https://www.npr.org/sections/health-shots/2014/02/11/275262857/the-high-cost-of-treating-people-hospitalized-with-west-nile-virus](https://www.npr.org/sections/health-shots/2014/02/11/275262857/the-high-cost-of-treating-people-hospitalized-with-west-nile-virus#:~:text=The%20U.S%20recorded%20its%20first,of%20Tropical%20Medicine%20and%20Hygiene)
+- [https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7241786/](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7241786/#:~:text=There%20were%201%2C371%20total%20human,(Cook%20and%20DuPage%20Counties))
 - [https://www.cdc.gov/westnile/statsmaps/cumMapsData.html#one](https://www.cdc.gov/westnile/statsmaps/cumMapsData.html#one)
 - [https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3322011/#R5](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3322011/#R5)
 - [https://www.todayonline.com/singapore/nea-opens-new-facility-breed-5-million-mosquitoes-week-combat-dengue](https://www.todayonline.com/singapore/nea-opens-new-facility-breed-5-million-mosquitoes-week-combat-dengue)
